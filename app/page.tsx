@@ -90,7 +90,7 @@ export default function Home() {
               Intégrateur Front-End
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-6">
-              Spécialisé dans le développement d'interfaces web modernes, responsives et performantes, 
+              Spécialisé dans le développement d&apos;interfaces web modernes, responsives et performantes, 
               avec une forte expérience sur les CMS et plateformes e-commerce.
             </p>
           </div>
@@ -132,17 +132,17 @@ export default function Home() {
               </h2>
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Intégrateur Front-End spécialisé dans le développement d'interfaces web 
+                  Intégrateur Front-End spécialisé dans le développement d&apos;interfaces web 
                   modernes, responsives et performantes, avec une forte expérience sur les CMS et 
                   plateformes e-commerce (Drupal, PrestaShop, Shopify, WordPress...).
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  J'interviens sur la transformation de maquettes UI/UX en interfaces fonctionnelles, 
-                  l'intégration front-end propre et maintenable.
+                  J&apos;interviens sur la transformation de maquettes UI/UX en interfaces fonctionnelles, 
+                  l&apos;intégration front-end propre et maintenable.
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                   Habitué à travailler en collaboration avec designers et développeurs back-end, je 
-                  porte une attention particulière à la performance, à l'accessibilité et à la 
+                  porte une attention particulière à la performance, à l&apos;accessibilité et à la 
                   compatibilité multi-navigateurs.
                 </p>
               </div>
@@ -308,7 +308,7 @@ export default function Home() {
                 Contactez-moi
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                Vous avez un projet en tête ? N'hésitez pas à me contacter pour discuter
+                Vous avez un projet en tête ? N&apos;hésitez pas à me contacter pour discuter
                 de vos besoins en développement web.
               </p>
             </div>
