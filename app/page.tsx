@@ -90,7 +90,7 @@ export default function Home() {
               Intégrateur Front-End
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-6">
-              Spécialisé dans le développement d&apos;interfaces web modernes, responsives et performantes, 
+              Spécialisé dans le développement d&apos;interfaces web modernes, responsives et performantes,
               avec une forte expérience sur les CMS et plateformes e-commerce.
             </p>
           </div>
@@ -132,17 +132,17 @@ export default function Home() {
               </h2>
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Intégrateur Front-End spécialisé dans le développement d&apos;interfaces web 
-                  modernes, responsives et performantes, avec une forte expérience sur les CMS et 
+                  Intégrateur Front-End spécialisé dans le développement d&apos;interfaces web
+                  modernes, responsives et performantes, avec une forte expérience sur les CMS et
                   plateformes e-commerce (Drupal, PrestaShop, Shopify, WordPress...).
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  J&apos;interviens sur la transformation de maquettes UI/UX en interfaces fonctionnelles, 
+                  J&apos;interviens sur la transformation de maquettes UI/UX en interfaces fonctionnelles,
                   l&apos;intégration front-end propre et maintenable.
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Habitué à travailler en collaboration avec designers et développeurs back-end, je 
-                  porte une attention particulière à la performance, à l&apos;accessibilité et à la 
+                  Habitué à travailler en collaboration avec designers et développeurs back-end, je
+                  porte une attention particulière à la performance, à l&apos;accessibilité et à la
                   compatibilité multi-navigateurs.
                 </p>
               </div>
@@ -316,7 +316,7 @@ export default function Home() {
             <div className="space-y-6">
               {/* Email */}
               <Link
-                href="mailto:contact@example.com"
+                href="mailto:mustapha.essaadaoui@gmail.com"
                 className="group flex items-center gap-4 p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
@@ -327,7 +327,7 @@ export default function Home() {
                     Email
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    contact@example.com
+                    mustapha.essaadaoui@gmail.com
                   </p>
                 </div>
               </Link>
