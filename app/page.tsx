@@ -87,7 +87,7 @@ export default function Home() {
               Mustapha Essaàdaoui
             </h1>
             <h2 className="text-2xl sm:text-3xl md:text-4xl text-blue-600 dark:text-blue-400 font-semibold">
-              Intégrateur Front-End
+              Développeur Front-End
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-6">
               Spécialisé dans le développement d&apos;interfaces web modernes, responsives et performantes,
@@ -132,7 +132,7 @@ export default function Home() {
               </h2>
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Intégrateur Front-End spécialisé dans le développement d&apos;interfaces web
+                  Développeur Front-End spécialisé dans le développement d&apos;interfaces web
                   modernes, responsives et performantes, avec une forte expérience sur les CMS et
                   plateformes e-commerce (Drupal, PrestaShop, Shopify, WordPress...).
                 </p>
