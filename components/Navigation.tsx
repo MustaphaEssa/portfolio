@@ -11,7 +11,12 @@ const navItems = [
   { id: 'contact', label: 'Contact' },
 ]
 
-export default function Navigation() {
+interface NavigationProps {
+  mobile?: boolean
+  onNavClick?: () => void
+}
+
+export default function Navigation({ mobile, onNavClick }: NavigationProps) {
   const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
@@ -48,6 +53,27 @@ export default function Navigation() {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: 'smooth' })
     setActiveSection(id) // Immediate feedback on click
+    onNavClick?.()
+  }
+
+  if (mobile) {
+    return (
+      <nav className="flex flex-col py-2 px-4">
+        {navItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => scrollToSection(item.id)}
+            className={`text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+              activeSection === item.id
+                ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
+                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+            }`}
+          >
+            {item.label}
+          </button>
+        ))}
+      </nav>
+    )
   }
 
   return (
