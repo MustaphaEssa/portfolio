@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
@@ -9,6 +9,7 @@ const sans = Bricolage_Grotesque({ subsets: ['latin'], variable: '--font-sans', 
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mustapha-essaadaoui.vercel.app'),
   title: 'Mustapha Essaàdaoui - Front-End / JavaScript Developer',
   description: 'Portfolio professionnel de Mustapha Essaàdaoui, développeur Front-End spécialisé en JavaScript, React et Next.js.',
   keywords: ['développeur web', 'front-end', 'JavaScript', 'React', 'Next.js', 'TypeScript'],
@@ -33,6 +34,13 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fafafa' },
+    { media: '(prefers-color-scheme: dark)', color: '#0c0c0e' },
+  ],
+}
+
 // Applique le thème avant le premier rendu pour éviter le flash clair/sombre.
 const themeScript = `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d)}catch(e){}})()`
 
@@ -48,9 +56,15 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <ThemeProvider>
+          <a
+            href="#contenu"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-fg focus:px-4 focus:py-2 focus:text-sm focus:text-bg"
+          >
+            Aller au contenu
+          </a>
           <div className="flex min-h-[100dvh] flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
+            <main id="contenu" className="flex-1">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

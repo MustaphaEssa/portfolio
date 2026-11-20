@@ -78,6 +78,7 @@ export default function Home() {
             <h1
               className="reveal mt-4 text-5xl font-semibold leading-[1.02] tracking-tighter text-fg sm:text-6xl lg:text-7xl"
               style={delay(1)}
+              translate="no"
             >
               Mustapha Essaàdaoui
             </h1>
@@ -91,7 +92,7 @@ export default function Home() {
                 className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-fg px-6 py-3 text-sm font-medium text-bg transition-transform active:scale-[0.98]"
               >
                 Voir mon parcours
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.5} />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.5} aria-hidden="true" />
               </a>
               <a
                 href="#contact"
@@ -140,7 +141,7 @@ export default function Home() {
           <ol className="mt-10 divide-y divide-line border-y border-line">
             {experiences.map((exp) => (
               <li key={exp.company} className="grid gap-1 py-6 md:grid-cols-12 md:items-baseline md:gap-6">
-                <p className="font-mono text-xs text-muted md:col-span-3">
+                <p className="font-mono text-xs tabular-nums text-muted md:col-span-3">
                   {exp.start} - {exp.end}
                 </p>
                 <h3 className="text-xl font-medium text-fg md:col-span-5">{exp.company}</h3>
@@ -152,7 +153,7 @@ export default function Home() {
           <div id="formation" className="mt-16 scroll-mt-24">
             <h3 className="text-xl font-semibold tracking-tight text-fg">Formation</h3>
             <div className="mt-4 grid gap-1 border-y border-line py-6 md:grid-cols-12 md:items-baseline md:gap-6">
-              <p className="font-mono text-xs text-muted md:col-span-3">
+              <p className="font-mono text-xs tabular-nums text-muted md:col-span-3">
                 {formation.start} - {formation.end}
               </p>
               <p className="text-xl font-medium text-fg md:col-span-9">{formation.diploma}</p>
@@ -194,10 +195,11 @@ export default function Home() {
             href="mailto:mustapha.essaadaoui@gmail.com"
             className="group mt-10 inline-flex max-w-full items-center gap-3 break-all text-2xl font-medium tracking-tight text-fg transition-colors hover:text-accent sm:text-4xl lg:text-5xl"
           >
-            mustapha.essaadaoui@gmail.com
+            <span translate="no">mustapha.essaadaoui@gmail.com</span>
             <ArrowUpRight
               className="h-7 w-7 shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 sm:h-10 sm:w-10"
               strokeWidth={1.5}
+              aria-hidden="true"
             />
           </a>
 

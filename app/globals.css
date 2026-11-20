@@ -31,6 +31,26 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
 ::selection {
   background: rgb(var(--accent) / 0.25);
 }
