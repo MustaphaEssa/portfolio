@@ -3,10 +3,8 @@
 import { useState, useEffect } from 'react'
 
 const navItems = [
-  { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Expérience' },
-  { id: 'formation', label: 'Formation' },
+  { id: 'about', label: 'À propos' },
+  { id: 'experience', label: 'Parcours' },
   { id: 'skills', label: 'Compétences' },
   { id: 'contact', label: 'Contact' },
 ]
@@ -20,75 +18,56 @@ export default function Navigation({ mobile, onNavClick }: NavigationProps) {
   const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
-    const options = {
-      rootMargin: '-50% 0px -50% 0px', // Consider section active when it's in the middle of the viewport
-    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id)
+        })
+      },
+      { rootMargin: '-50% 0px -50% 0px' },
+    )
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id)
-        }
-      })
-    }, options)
+    const ids = ['hero', ...navItems.map((item) => item.id)]
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null)
+    elements.forEach((el) => observer.observe(el))
 
-    navItems.forEach((item) => {
-      const element = document.getElementById(item.id)
-      if (element) {
-        observer.observe(element)
-      }
-    })
-
-    return () => {
-      navItems.forEach((item) => {
-        const element = document.getElementById(item.id)
-        if (element) {
-          observer.unobserve(element)
-        }
-      })
-    }
+    return () => observer.disconnect()
   }, [])
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
-    setActiveSection(id) // Immediate feedback on click
-    onNavClick?.()
-  }
 
   if (mobile) {
     return (
-      <nav className="flex flex-col py-2 px-4">
+      <nav className="flex flex-col px-4 py-2">
         {navItems.map((item) => (
-          <button
+          <a
             key={item.id}
-            onClick={() => scrollToSection(item.id)}
-            className={`text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-              activeSection === item.id
-                ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
-                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+            href={`#${item.id}`}
+            onClick={onNavClick}
+            className={`rounded-xl px-4 py-3 text-base transition-colors ${
+              activeSection === item.id ? 'bg-surface text-fg' : 'text-muted hover:text-fg'
             }`}
           >
             {item.label}
-          </button>
+          </a>
         ))}
       </nav>
     )
   }
 
   return (
-    <nav className="hidden md:flex items-center gap-6">
+    <nav className="hidden items-center gap-7 md:flex">
       {navItems.map((item) => (
-        <button
+        <a
           key={item.id}
-          onClick={() => scrollToSection(item.id)}
-          className={`text-sm font-medium transition-colors ${activeSection === item.id
-              ? 'text-blue-600 dark:text-blue-400'
-              : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
-            }`}
+          href={`#${item.id}`}
+          aria-current={activeSection === item.id ? 'true' : undefined}
+          className={`text-sm transition-colors ${
+            activeSection === item.id ? 'text-fg' : 'text-muted hover:text-fg'
+          }`}
         >
           {item.label}
-        </button>
+        </a>
       ))}
     </nav>
   )

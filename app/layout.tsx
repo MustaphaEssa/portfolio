@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ThemeProvider from '@/components/ThemeProvider'
 
-const inter = Inter({ subsets: ['latin'] })
+const sans = Bricolage_Grotesque({ subsets: ['latin'], variable: '--font-sans', display: 'swap' })
+const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'Mustapha Essaàdaoui - Front-End / JavaScript Developer',
@@ -32,16 +33,22 @@ export const metadata: Metadata = {
   },
 }
 
+// Applique le thème avant le premier rendu pour éviter le flash clair/sombre.
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d)}catch(e){}})()`
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="fr" suppressHydrationWarning className={`${sans.variable} ${mono.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="font-sans">
         <ThemeProvider>
-          <div className="flex min-h-screen flex-col">
+          <div className="flex min-h-[100dvh] flex-col">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />

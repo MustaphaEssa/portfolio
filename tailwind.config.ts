@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss'
 
+const token = (name: string) => `rgb(var(--${name}) / <alpha-value>)`
+
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,17 +12,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        bg: token('bg'),
+        surface: token('surface'),
+        fg: token('fg'),
+        muted: token('muted'),
+        line: token('line'),
+        accent: token('accent'),
+        'accent-soft': token('accent-soft'),
       },
-      animation: {
-        'fade-in': 'fade-in 0.6s ease-out',
-      },
-      keyframes: {
-        'fade-in': {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
+      fontFamily: {
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },
     },
   },

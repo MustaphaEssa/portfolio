@@ -13,26 +13,18 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('light')
-  const [mounted, setMounted] = useState(false)
 
+  // Le script inline de layout.tsx a déjà posé la classe : on se synchronise dessus.
   useEffect(() => {
-    setMounted(true)
-    const savedTheme = localStorage.getItem('theme') as Theme | null
-    if (savedTheme) {
-      setTheme(savedTheme)
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark')
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      const initialTheme = prefersDark ? 'dark' : 'light'
-      setTheme(initialTheme)
-      document.documentElement.classList.toggle('dark', initialTheme === 'dark')
-    }
+    setTheme(document.documentElement.classList.contains('dark') ? 'dark' : 'light')
   }, [])
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
     setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
+    try {
+      localStorage.setItem('theme', newTheme)
+    } catch {}
     document.documentElement.classList.toggle('dark', newTheme === 'dark')
   }
 
